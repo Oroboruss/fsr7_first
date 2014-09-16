@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/FSR2013-group1/!svn/ver/131/trunk/round2/params
+END
+base_local_planner_params.yaml
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/FSR2013-group1/!svn/ver/131/trunk/round2/params/base_local_planner_params.yaml
+END
+global_costmap_params.yaml
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/FSR2013-group1/!svn/ver/80/trunk/round2/params/global_costmap_params.yaml
+END
+costmap_common_params.yaml
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/FSR2013-group1/!svn/ver/131/trunk/round2/params/costmap_common_params.yaml
+END
+local_costmap_params.yaml
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/FSR2013-group1/!svn/ver/80/trunk/round2/params/local_costmap_params.yaml
+END
+move_base_params.yaml
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/FSR2013-group1/!svn/ver/72/trunk/round2/params/move_base_params.yaml
+END

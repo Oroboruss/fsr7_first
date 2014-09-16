@@ -1,0 +1,35 @@
+<launch>
+
+<!-- link topics -->
+<node pkg="tf" type="static_transform_publisher" name="laser_base_link_broadcaster" args="-0.08 -0.02 0 0 0 0 /base_link /laser 10" />
+<node pkg="tf" type="static_transform_publisher" name="camera_base_link_broadcaster" args="0.1 0.10 0.415 0.05 0 0 /base_link /camera_rotate 10" />
+<node pkg="tf" type="static_transform_publisher" name="manip_base_link_broadcaster" args="0.25 0 0 0 0 0 /base_link /manipulator 10" />
+
+<!-- Camera position relative to the rest 
+node pkg="robot" type="camera_tf_broadcaster" name="camera_tf_broadcaster" output="screen"
+-->
+
+<!-- SLAM mapping -->
+<node pkg="gmapping" type="slam_gmapping" name="gmapping">
+	<param name="scan" value="/scan"/>
+	<param name="~xmin" value="0"/>
+	<param name="~ymin" value="0"/>
+	<param name="~xmax" value="0"/>
+	<param name="~ymax" value="0"/>'
+	<param name="~maxURange" value="10"/>
+	<param name="~delta" value="0.025"/>
+</node>
+
+<!-- Navigation -->
+<node pkg="move_base" type="move_base" name="move_base" output="screen">
+	<rosparam file="$(find robot)/params/costmap_common_params.yaml" command="load" ns="global_costmap" />
+	<rosparam file="$(find robot)/params/costmap_common_params.yaml" command="load" ns="local_costmap" />
+	<rosparam file="$(find robot)/params/local_costmap_params.yaml" command="load" />
+	<rosparam file="$(find robot)/params/global_costmap_params.yaml" command="load" /> 
+	<rosparam file="$(find robot)/params/base_local_planner_params.yaml" command="load" />
+	<rosparam file="$(find robot)/params/move_base_params.yaml" command="load" /> 
+	<remap from="cmd_vel" to="RosAria/cmd_vel" />
+</node>
+
+
+</launch>
